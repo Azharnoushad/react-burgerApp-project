@@ -1,10 +1,10 @@
 import React from "react";
 
-const Nav = ({ handlerSideBar }) => {
+const Nav = ({ handlerSideBar, cart }) => {
   return (
     <nav className="menu">
       <div className="menuItem cartOpen" onClick={handlerSideBar}>
-        Cart
+        Cart {cart.length}
       </div>
     </nav>
   );

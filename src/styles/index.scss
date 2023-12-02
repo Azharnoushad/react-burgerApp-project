@@ -47,6 +47,7 @@ select {
   font: inherit;
   padding: 5px;
 }
+
 .visible {
   display: block;
 }
@@ -54,7 +55,18 @@ select {
   display: none;
 }
 
-//Layout Elements
+/* Button */
+.btn {
+  padding: 5px 15px;
+  cursor: pointer;
+  background: $primary;
+  border: 2px solid $primary;
+  border-radius: 3px;
+  color: $light_text;
+  &:hover {
+    opacity: 0.9;
+  }
+}
 
 /* Container */
 .container {
@@ -70,26 +82,6 @@ select {
   grid-column: content;
 }
 
-/* Button */
-.btn {
-  padding: 5px 15px;
-  cursor: pointer;
-  background: $primary;
-  border: 2px solid $primary;
-  border-radius: 3px;
-  color: $light_text;
-  &:hover {
-    opacity: 0.9;
-  }
-}
-.cartBtn {
-  padding: 5px 5px;
-  line-height: 1;
-  width: 24px;
-  height: 24px;
-  font-size: 14px;
-}
-
 //Header Section
 #headerSection {
   background: $alt_bg;
@@ -100,8 +92,8 @@ select {
   align-items: center;
   min-height: 80px;
 }
-// .logo{
-// }
+.logo {
+}
 nav.menu {
   display: flex;
   justify-content: space-between;
@@ -223,8 +215,10 @@ nav.menu {
     h2 {
       font-size: 16px;
     }
-    input {
-      width: 60px;
+    .quantityControl {
+      display: flex;
+      gap: 5px;
+      align-items: center;
     }
   }
   .cartInput {
@@ -232,6 +226,9 @@ nav.menu {
     width: 60px;
     font-size: 14px;
   }
+}
+.cartFooter {
+  padding: 20px;
 }
 
 // Footer

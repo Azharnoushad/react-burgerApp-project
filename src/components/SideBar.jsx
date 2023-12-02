@@ -1,85 +1,47 @@
-import React from 'react'
+import React from "react";
 import { IoMdCloseCircle } from "react-icons/io";
+import CartItem from "./CartItem";
+import { formatPrice } from "../utilis/formatPrice";
 
-const SideBar = ({handlerSideBar}) => {
+const SideBar = ({
+  handlerSideBar,
+  cart,
+  addToCartHandler,
+  decreaseTheQuantity,
+  removeItemFromCart,
+  totalPrice
+}) => {
   return (
-    <div id="sidebar" >
-        <div className="cart">
-          <div className="cartHead">
-            <div>
-              <h2>Shopping Cart</h2>
-              <p>5 items in your cart</p>
-            </div>
-            <div className="cartClose" onClick={handlerSideBar}>
-            <IoMdCloseCircle color='#f59e0b' size={35}/>
-            </div>
+    <div id="sidebar">
+      <div className="cart">
+        <div className="cartHead">
+          <div>
+            <h2>Shopping Cart</h2>
+            <p>{cart.length} items in your cart</p>
           </div>
-          <div className="cartBody">
-            <div className="cartItem">
-              <div>
-                <img
-                  src="https://www.svgrepo.com/show/13658/error.svg"
-                  alt=""
-                  width="16"
-                />
-              </div>
-              <img
-                src="https://i.ibb.co/xh2mQfG/burg6.png"
-                alt=""
-                width="48"
-                height="48"
-              />
-              <div className="cartContent">
-                <h2>Mega Burger</h2>
-                <p>$15</p>
-              </div>
-              <input className="cartInput" type="number" placeholder="2" min="0" />
-            </div>
-            <div className="cartItem">
-              <div>
-                <img
-                  src="https://www.svgrepo.com/show/13658/error.svg"
-                  alt=""
-                  width="16"
-                />
-              </div>
-              <img
-                src="https://i.ibb.co/xh2mQfG/burg6.png"
-                alt=""
-                width="48"
-                height="48"
-              />
-              <div className="cartContent">
-                <h2>Cheese Burger</h2>
-                <p>$12</p>
-              </div>
-              <input className="cartInput" type="number" placeholder="2" min="0" />
-            </div>
-            <div className="cartItem">
-              <div>
-                <img
-                  src="https://www.svgrepo.com/show/13658/error.svg"
-                  alt=""
-                  width="16"
-                />
-              </div>
-              <img
-                src="https://i.ibb.co/xh2mQfG/burg6.png"
-                alt=""
-                width="48"
-                height="48"
-              />
-              <div className="cartContent">
-                <h2>Mega Burger</h2>
-                <p>$15</p>
-              </div>
-              <input className="cartInput" type="number" placeholder="2" min="0" />
-            </div>
+          <div className="cartClose" onClick={handlerSideBar}>
+            <IoMdCloseCircle color="#f59e0b" size={35} />
           </div>
-          <div className="cartFooter"></div>
+        </div>
+        <div className="cartBody">
+          {cart?.map((burger) => {
+            return (
+              <CartItem
+                key={burger.id}
+                burger={burger}
+                addToCartHandler={addToCartHandler}
+                decreaseTheQuantity={decreaseTheQuantity}
+                removeItemFromCart={removeItemFromCart}
+              />
+            );
+          })}
+        </div>
+        <div className="cartFooter">
+          <h3>Total - {formatPrice( Math.floor(totalPrice))}</h3>
         </div>
       </div>
-  )
-}
+    </div>
+  );
+};
 
-export default SideBar
+export default SideBar;

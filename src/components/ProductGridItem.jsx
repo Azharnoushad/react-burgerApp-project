@@ -10,7 +10,12 @@ const ProductGridItem = ({
   description,
   price,
   reviews,
+  burger,
+  addToCartHandler,
+  cart,
 }) => {
+  const itemInCart = cart.findIndex((item) => item.id === id);
+
   return (
     <div className="productGridItem">
       <img src={image} alt="" />
@@ -24,7 +29,9 @@ const ProductGridItem = ({
         <p>{description}</p>
         <div className="itemMeta">
           <div className="itemPrice">{formatPrice(price)}</div>
-          <div className="btn">Add to Cart</div>
+          <div className="btn" onClick={() => addToCartHandler(burger)}>
+            {itemInCart > -1 ? "Added To Cart" : "Add To Cart"}
+          </div>
         </div>
       </div>
     </div>
