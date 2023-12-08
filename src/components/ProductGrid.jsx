@@ -2,7 +2,7 @@ import React from "react";
 import ProductGridItem from "./ProductGridItem";
 import { burgers } from "../../data";
 
-const ProductGrid = ({ addToCartHandler, cart }) => {
+const ProductGrid = () => {
   return (
     <main>
       <div className="container">
@@ -12,8 +12,6 @@ const ProductGrid = ({ addToCartHandler, cart }) => {
               <ProductGridItem
                 key={burger.id}
                 {...burger}
-                cart={cart}
-                addToCartHandler={addToCartHandler}
                 burger={burger}
               />
             );

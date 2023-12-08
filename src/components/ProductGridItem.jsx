@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoIosStar } from "react-icons/io";
 import { formatPrice } from "../utilis/formatPrice";
+import { AppContext } from "../context/context";
 
 const ProductGridItem = ({
   id,
@@ -11,10 +12,23 @@ const ProductGridItem = ({
   price,
   reviews,
   burger,
-  addToCartHandler,
-  cart,
 }) => {
-  const itemInCart = cart.findIndex((item) => item.id === id);
+  const { state, dispatch } = useContext(AppContext);
+  const itemInCart = state.cart.find((item) => item.id === id);
+
+  const addToCartHandler = (burger) => {
+    if (itemInCart) {
+      dispatch({
+        type: "INCREASE_QUANTITY",
+        payLoad: id,
+      });
+    } else {
+      dispatch({
+        type: "ADD_TO_CART",
+        payLoad: { ...burger, quantity: 1 },
+      });
+    }
+  };
 
   return (
     <div className="productGridItem">
@@ -30,7 +44,7 @@ const ProductGridItem = ({
         <div className="itemMeta">
           <div className="itemPrice">{formatPrice(price)}</div>
           <div className="btn" onClick={() => addToCartHandler(burger)}>
-            {itemInCart > -1 ? "Added To Cart" : "Add To Cart"}
+            {itemInCart ? "Added To Cart" : "Add To Cart"}
           </div>
         </div>
       </div>

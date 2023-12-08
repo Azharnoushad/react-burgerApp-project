@@ -1,7 +1,8 @@
 import React from "react";
 import Nav from "./Nav";
 
-const Header = ({ handlerSideBar, cart }) => {
+const Header = () => {
+
   return (
     <header id="headerSection">
       <div className="container">
@@ -9,7 +10,7 @@ const Header = ({ handlerSideBar, cart }) => {
           <div className="logo">
             <h2>BurgerMantri</h2>
           </div>
-          <Nav handlerSideBar={handlerSideBar} cart={cart} />
+          <Nav   />
         </div>
       </div>
     </header>
