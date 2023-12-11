@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { IoIosStar } from "react-icons/io";
 import { formatPrice } from "../utilis/formatPrice";
 import { AppContext } from "../context/context";
+import { Link } from "react-router-dom";
 
 const ProductGridItem = ({
   id,
@@ -34,7 +35,9 @@ const ProductGridItem = ({
     <div className="productGridItem">
       <img src={image} alt="" />
       <div className="itemContent">
-        <h2>{title}</h2>
+        <Link to={`/burger/${id}`}>
+          <h2>{title}</h2>
+        </Link>
         <p className="rating">
           <IoIosStar color="#f59e0b" />
           <span>{rating}</span>

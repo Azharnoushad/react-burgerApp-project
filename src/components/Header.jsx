@@ -1,16 +1,18 @@
 import React from "react";
 import Nav from "./Nav";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-
   return (
     <header id="headerSection">
       <div className="container">
         <div className="header">
           <div className="logo">
-            <h2>BurgerMantri</h2>
+            <Link>
+              <h2>BurgerMantri</h2>
+            </Link>
           </div>
-          <Nav   />
+          <Nav />
         </div>
       </div>
     </header>

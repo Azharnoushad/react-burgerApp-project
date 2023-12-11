@@ -1,18 +1,13 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { AppContext } from "../context/context";
 
 const Nav = () => {
-  const { state, dispatch } = useContext(AppContext);
-
-  const showSideBar = () => {
-    dispatch({
-      type: "SHOW_AND_HIDE_SIDE_BAR",
-    });
-  };
+  const { state } = useContext(AppContext);
   return (
     <nav className="menu">
-      <div className="menuItem cartOpen" onClick={showSideBar}>
-        Cart {state.cart.length}
+      <div className="menuItem cartOpen">
+        <NavLink to="/cart">Cart {state.cart.length}</NavLink>
       </div>
     </nav>
   );

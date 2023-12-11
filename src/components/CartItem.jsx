@@ -37,13 +37,7 @@ const CartItem = ({ burger }) => {
   };
   return (
     <div className="cartItem">
-      <div>
-        <IoMdCloseCircle
-          color="#f59e0b"
-          size={30}
-          onClick={() => removeItemHandler(id)}
-        />
-      </div>
+      
       <img src={image} alt="" width="48" height="48" />
       <div className="cartContent">
         <h2>{title}</h2>
@@ -58,6 +52,13 @@ const CartItem = ({ burger }) => {
             <FaSquarePlus size={18} />
           </span>
         </div>
+      </div>
+      <div>
+        <IoMdCloseCircle
+          color="#f59e0b"
+          size={30}
+          onClick={() => removeItemHandler(id)}
+        />
       </div>
     </div>
   );

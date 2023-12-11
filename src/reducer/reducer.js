@@ -1,13 +1,9 @@
 export const initialState = {
-  showSidebar: false,
   cart: [],
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    // toggle sidebar function----------------------------------------------------
-    case "SHOW_AND_HIDE_SIDE_BAR":
-      return { ...state, showSidebar: !state.showSidebar };
     // Add To Cart function----------------------------------------------------
 
     case "ADD_TO_CART":
